@@ -1,0 +1,5 @@
+.idea/*.*
+/image-generator/node_modules
+/image-generator/images
+/image-generator/urgent-images
+/instruction.md
