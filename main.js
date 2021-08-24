@@ -507,6 +507,7 @@ function renderSearchResults(results) {
         <li onclick="window.open('${document.location.origin}/studio/${
         result["slug"]
       }', '_self')">
+        <div class="live-item">
           <div style="margin-bottom: 3px; display: flex; flex-direction: row; justify-content: space-between;">
             <div class="title"><b>${result["name"]}${
         result["location-tag"] ? " " + result["location-tag"] + "" : ""
@@ -531,6 +532,7 @@ function renderSearchResults(results) {
             </div>
             <span class="icon icon-right-arrow" style="align-self: flex-end;"></span>
           </div>
+        </div>
         </li>
       `;
     }

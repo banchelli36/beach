@@ -1,4 +1,6 @@
-body, html, .main-container {
+body,
+html,
+.main-container {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -22,27 +24,26 @@ body, html, .main-container {
     text-align: center;
 }
 
-
 .loader {
     -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
     border: 3px solid #ddd;
     border-top: 3px solid #e99a6d;
     border-radius: 50%;
     height: 50px;
     width: 50px;
-    background:transparent;
+    background: transparent;
     z-index: 100;
     position: absolute;
     top: 48%;
     left: 50%;
 }
-  
+
 @-webkit-keyframes spin {
     to {
         border-top-color: #e99a6d;
         -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -50,7 +51,7 @@ body, html, .main-container {
     to {
         border-top-color: #e99a6d;
         -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -73,17 +74,15 @@ div#map {
         overflow-x: hidden;
         transition: 0.1s;
         overflow-y: hidden;
-        margin: 16px 24px;
+        margin: 28px 40px;
         border-radius: 4px;
     }
 
     .sidenav ul li {
         display: block;
         cursor: pointer;
-        padding: 17px 24px 16px 24px;
-        border-bottom: solid 1px #d9d7d6;
-        transition: all .4s ease;
-        width: 90%;
+        padding: 18px 20px 0px 20px;
+        transition: all 0.4s ease;
         margin: 0 auto;
         box-sizing: border-box;
     }
@@ -92,6 +91,15 @@ div#map {
         height: 100%;
         width: 100%;
     }
+}
+
+.sidenav ul li .live-item {
+    padding-bottom: 18px;
+    border-bottom: solid 1px #d9d7d6;
+}
+
+.sidenav ul li:hover .live-item {
+    border-bottom: solid 1px #607D8B !important;
 }
 
 @media only screen and (max-width: 480px) {
@@ -113,7 +121,7 @@ div#map {
         cursor: pointer;
         padding: 17px 3px 16px 4px;
         border-bottom: solid 1px #d9d7d6;
-        transition: all .4s ease;
+        transition: all 0.4s ease;
         width: 90%;
         margin: 0 auto;
         box-sizing: border-box;
@@ -140,9 +148,9 @@ div#map {
     .sidenav ul li {
         display: block;
         cursor: pointer;
-        padding: 17px 24px 16px 24px;
+        padding: 18px 20px;
         border-bottom: solid 1px #d9d7d6;
-        transition: all .4s ease;
+        transition: all 0.4s ease;
         width: 90%;
         margin: 0 auto;
         box-sizing: border-box;
@@ -159,23 +167,24 @@ div#map {
 }
 
 .sidenav #header {
-    padding: 24px 16px 24px 24px;
+    padding: 20px 20px 20px 20px;
     box-shadow: 1px 1px 4px 0 rgba(135, 135, 135, 0.3);
-    background: url(https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9a7779932c589d703bc4c5_pattern.png), linear-gradient(to bottom, #e3702e, #cf5c29);
+    background: url(https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9a7779932c589d703bc4c5_pattern.png),
+        linear-gradient(to bottom, #5d4a6d, #5d4a6d);
     background-size: cover;
 }
 
 .sidenav form#search_field {
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 60px;
     object-fit: contain;
     padding: 0 16px 0 16px;
     border-radius: 4px;
     border: 0;
     background-color: rgba(255, 255, 255, 0.98);
     flex: 1;
-    margin-right: 12px;
+    margin-right: 8px;
 }
 
 .sidenav form#search_field input {
@@ -199,7 +208,7 @@ div#map {
 .sidenav form#search_field div {
     width: 24px;
     height: 24px;
-    background-image: url('https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9be8835bfc119fffd08496_location.svg');
+    background-image: url("https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9be8835bfc119fffd08496_location.svg");
     background-color: unset;
     border: 0;
     cursor: pointer;
@@ -210,17 +219,19 @@ div#map {
 }
 
 .sidenav button.locator-btn {
-    height: 48px;
-    width: 48px;
-    background-color: transparent;
-    background-image: url('https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9a82d1c4998c73058c8fc4_btn-search.svg');
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    background-image: url("https://global-uploads.webflow.com/60708843c173335270e52d28/6080f065075d614bdfa224f3_search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
     border-radius: 4px;
     border: 0;
 }
 
 .sidenav button.locator-btn:hover {
-    background-image: url('https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9a836cc53fb4a25819ccca_btn-search%20(2).svg');
+    background-color: #607d8b;
 }
 
 .sidenav button.locator-btn:focus {
@@ -244,7 +255,7 @@ div#map {
 }
 
 .sidenav ul::-webkit-scrollbar-track {
-    background: #EDEDED;
+    background: #ededed;
 }
 
 .sidenav ul::-webkit-scrollbar-thumb {
@@ -255,7 +266,7 @@ div#map {
 /* .sidenav ul li {
     display: block;
     cursor: pointer;
-    padding: 17px 24px 16px 24px;
+    padding: 18px 20px;
     border-bottom: solid 1px #d9d7d6;
     transition: all .4s ease;
     width: 90%;
@@ -263,24 +274,50 @@ div#map {
     box-sizing: border-box;
 } */
 
+.sidenav ul li {
+    position: relative;
+}
+
+.sidenav ul li:hover:after { 
+    position: absolute;
+    content: '';
+    border: 0px solid;
+    right: 0em;
+    top: auto;
+    bottom: 0px;
+    height: 100px;
+    color: #afbec5 !important;
+}
+
+.sidenav ul li:hover:after {
+    border: 4px solid;
+}
+
 .sidenav ul li:hover {
-    background-color: #f8f8f8;
-    transform: scale(1.05);
-    box-shadow: 0 0 9px 5px rgba(0, 0, 0, 0.27);
+    background-color: #607d8b;
+    color: white;
+    /* transform: scale(1.05); */
+    /* box-shadow: 0 0 9px 5px rgba(0, 0, 0, 0.27); */
 }
 
 .sidenav ul li div.title {
     object-fit: contain;
     font-family: Helvetica Neue, sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.13;
     letter-spacing: normal;
     color: #282828;
-    margin-bottom: 0px !important;
-    letter-spacing:.07em;
+    margin-bottom: 4px !important;
+    letter-spacing: 0.07em;
+}
+
+.sidenav ul li:hover div .title,
+.sidenav ul li:hover div .miles,
+.sidenav ul li:hover div .subtitle {
+    color: white !important;
 }
 
 .sidenav ul li div.miles {
@@ -299,28 +336,28 @@ div#map {
 .sidenav ul li div.subtitle {
     object-fit: contain;
     font-family: Helvetica Neue, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.43;
     letter-spacing: normal;
     color: #131313;
-    letter-spacing:.07em;
+    letter-spacing: 0.07em;
 }
 
 .sidenav #title {
     object-fit: contain;
     font-family: Helvetica Neue, sans-serif;
-    font-size: 22px;
-    height: 26px;
+    font-size: 14px;
+    height: 21px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
-    letter-spacing: .07em;
+    letter-spacing: 0.07em;
     color: #ffffff;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .sidenav ul li .icon {
@@ -332,24 +369,30 @@ div#map {
 }
 
 .sidenav ul li .icon-right-arrow {
-    background-image: url('https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8ba040dc4a71547a21_Arrow%20Button-%20Transparent.svg');
+    background-image: url("https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8ba040dc4a71547a21_Arrow%20Button-%20Transparent.svg");
 }
 
 .sidenav ul li:hover .icon-right-arrow {
-    background-image: url('https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8be4578afa5f202055_Arrow%20Button-%20Orange.svg');
+    background-image: url("https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8be4578afa5f202055_Arrow%20Button-%20Orange.svg");
 }
 
-@media only screen and (max-width:479px){
-    .sidenav #title{font-size:16px; margin-bottom:0;}
-    .sidenav #header{padding:7px 15px}
-    .sidenav form#search_field input{font-size:12px}
+@media only screen and (max-width: 479px) {
+    .sidenav #title {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    .sidenav #header {
+        padding: 7px 15px;
+    }
+    .sidenav form#search_field input {
+        font-size: 12px;
+    }
 }
 
 #input-location-error {
     color: yellow;
     margin: 6px 0px -20px 0px;
 }
-  
 
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
@@ -358,4 +401,3 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 20px;
     background-image: url("https://scripts.cosmagency.com/hotworx/icons/cancel.svg");
 }
-  
