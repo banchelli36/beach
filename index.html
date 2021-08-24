@@ -1,68 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+
+<head>
+    <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI1TN8xKeSM3HX6C40vNoy4xnTZxUU0uo&callback=initMap&libraries=places,geometry"
-      defer
-    ></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI1TN8xKeSM3HX6C40vNoy4xnTZxUU0uo&callback=initMap&libraries=places,geometry"
+        defer></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="main.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="main-container">
-      <div id="mySidenav" class="sidenav">
-        <div id="header">
-          <div id="title">FIND A SPA</div>
-          <div
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-between;
-            "
-          >
-            <form
-              id="search_field"
-              onsubmit="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state']); return false;"
-            >
-              <input
-                id="pac-input"
-                type="search"
-                placeholder="Search by Zip Code or City and State"
-                onsearch="search('', ['name', 'zip-code', 'state']);"
-                onkeyup="searchFun()"
-                onchange="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])"
-              />
-              <div class="detect-location" onclick="renderClosestLocations(10)">
-                <img
-                  src="https://uploads-ssl.webflow.com/60708843c173335270e52d28/6080f07afa9b246bee71e6fb_detector.svg"
-                />
-              </div>
-              <div class="search-location-button" onclick="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])">
-                <img
-                  src="https://uploads-ssl.webflow.com/60708843c173335270e52d28/6080f065075d614bdfa224f3_search.svg"
-                />
-              </div>
-            </form>
-          </div>
-          <p id="input-location-error" style="visibility: hidden">
-            Please select correct address
-          </p>
+        <div id="mySidenav" class="sidenav">
+            <div id="header">
+                <div id="title">FIND A STUDIO</div>
+                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <form id="search_field"
+                        onsubmit="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state']); return false;">
+                        <input id="pac-input" type="search" placeholder="Search by Zip Code or City and State..." onsearch="search('', ['name', 'zip-code', 'state']);" onkeyup="searchFun()" onchange="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])">
+                        <div onclick="renderClosestLocations(10)"></div>
+                    </form>
+                    <button class="locator-btn"
+                        onclick="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])"></button>
+                </div>
+                <p id="input-location-error" style="visibility: hidden;">Please select correct address</p>
+            </div>
+            <ul class="results"></ul>
         </div>
-        <ul class="results"></ul>
-      </div>
-      <div id="loader" class="loader"></div>
-      <div id="map"></div>
+        <div id="loader" class="loader"></div>
+        <div id="map">
+        </div>
 
-      <div id="infowindow-content">
-        <img src="" width="16" height="16" id="place-icon" />
-        <span id="place-name" class="title"></span><br />
-        <span id="place-address"></span>
-      </div>
+        <div id="infowindow-content">
+            <img src="" width="16" height="16" id="place-icon" />
+            <span id="place-name" class="title"></span><br />
+            <span id="place-address"></span>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>

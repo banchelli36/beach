@@ -81,8 +81,9 @@ div#map {
         display: block;
         cursor: pointer;
         padding: 17px 24px 16px 24px;
-        border-bottom: solid 1px #E5D9D1;
+        border-bottom: solid 1px #d9d7d6;
         transition: all .4s ease;
+        width: 90%;
         margin: 0 auto;
         box-sizing: border-box;
     }
@@ -111,20 +112,21 @@ div#map {
         display: block;
         cursor: pointer;
         padding: 17px 3px 16px 4px;
-        border-bottom: solid 1px #E5D9D1;
+        border-bottom: solid 1px #d9d7d6;
         transition: all .4s ease;
+        width: 90%;
         margin: 0 auto;
         box-sizing: border-box;
     }
-    /* .subtitle-part {
+    .subtitle-part {
         display: none !important;
-    } */
+    }
 }
 @media only screen and (min-width: 480px) and (max-width: 991px) {
     .sidenav {
         display: flex;
         flex-direction: column;
-        max-height: 320px;
+        max-height: 297px;
         width: 100%;
         z-index: 1;
         top: 0;
@@ -139,15 +141,16 @@ div#map {
         display: block;
         cursor: pointer;
         padding: 17px 24px 16px 24px;
-        border-bottom: solid 1px #E5D9D1;
+        border-bottom: solid 1px #d9d7d6;
         transition: all .4s ease;
+        width: 90%;
         margin: 0 auto;
         box-sizing: border-box;
     }
 
-    /* .subtitle-part {
+    .subtitle-part {
         display: none !important;
-    } */
+    }
 
     div#map {
         height: 446px;
@@ -156,22 +159,23 @@ div#map {
 }
 
 .sidenav #header {
-    padding: 18px 20px 18px 20px;
+    padding: 24px 16px 24px 24px;
     box-shadow: 1px 1px 4px 0 rgba(135, 135, 135, 0.3);
-    background: #303033;
+    background: url(https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9a7779932c589d703bc4c5_pattern.png), linear-gradient(to bottom, #e3702e, #cf5c29);
     background-size: cover;
 }
 
 .sidenav form#search_field {
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 48px;
     object-fit: contain;
     padding: 0 16px 0 16px;
     border-radius: 4px;
     border: 0;
     background-color: rgba(255, 255, 255, 0.98);
     flex: 1;
+    margin-right: 12px;
 }
 
 .sidenav form#search_field input {
@@ -192,15 +196,13 @@ div#map {
     outline: 0;
 }
 
-.sidenav form#search_field .detect-location {
-    height: 22px;
+.sidenav form#search_field div {
+    width: 24px;
+    height: 24px;
+    background-image: url('https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9be8835bfc119fffd08496_location.svg');
+    background-color: unset;
+    border: 0;
     cursor: pointer;
-}
-
-.sidenav form#search_field .search-location-button {
-    height: 22px;
-    cursor: pointer;
-    margin-left: 14px;
 }
 
 .sidenav form#search_field div:focus {
@@ -238,23 +240,23 @@ div#map {
 }
 
 .sidenav ul::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
 }
 
 .sidenav ul::-webkit-scrollbar-track {
-    background: #E5D9D1;
+    background: #EDEDED;
 }
 
 .sidenav ul::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background-color: #735985;
+    background-color: #b5b5b5;
 }
 
 /* .sidenav ul li {
     display: block;
     cursor: pointer;
     padding: 17px 24px 16px 24px;
-    border-bottom: solid 1px #E5D9D1;
+    border-bottom: solid 1px #d9d7d6;
     transition: all .4s ease;
     width: 90%;
     margin: 0 auto;
@@ -262,15 +264,15 @@ div#map {
 } */
 
 .sidenav ul li:hover {
-    /* background-color: #f8f8f8;
+    background-color: #f8f8f8;
     transform: scale(1.05);
-    box-shadow: 0 0 9px 5px rgba(0, 0, 0, 0.27); */
+    box-shadow: 0 0 9px 5px rgba(0, 0, 0, 0.27);
 }
 
 .sidenav ul li div.title {
     object-fit: contain;
     font-family: Helvetica Neue, sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -310,7 +312,7 @@ div#map {
 .sidenav #title {
     object-fit: contain;
     font-family: Helvetica Neue, sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     height: 26px;
     font-weight: 500;
     font-stretch: normal;
@@ -323,18 +325,18 @@ div#map {
 
 .sidenav ul li .icon {
     display: inline-block;
-    width: 48px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     background-size: cover;
     position: relative;
 }
 
-/* .sidenav ul li .icon-right-arrow {
+.sidenav ul li .icon-right-arrow {
     background-image: url('https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8ba040dc4a71547a21_Arrow%20Button-%20Transparent.svg');
-} */
+}
 
 .sidenav ul li:hover .icon-right-arrow {
-    background-image: url('https://uploads-ssl.webflow.com/60708843c173335270e52d28/608130874642948505d779eb_logo-svg.svg');
+    background-image: url('https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8be4578afa5f202055_Arrow%20Button-%20Orange.svg');
 }
 
 @media only screen and (max-width:479px){
