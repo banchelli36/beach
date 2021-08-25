@@ -173,13 +173,13 @@ function geocodeAddress(address, locations) {
         address = [
           (place.address_components[0] &&
             place.address_components[0].short_name) ||
-            "",
+          "",
           (place.address_components[1] &&
             place.address_components[1].short_name) ||
-            "",
+          "",
           (place.address_components[2] &&
             place.address_components[2].short_name) ||
-            "",
+          "",
         ].join(" ");
       }
       const searchedAddress = document.querySelector("#search_field input")
@@ -322,82 +322,82 @@ function initMap() {
     disableDefaultUI: true,
     styles: [
       {
-          "featureType": "administrative",
-          "elementType": "labels.text.fill",
-          "stylers": [
-              {
-                  "color": "#444444"
-              }
-          ]
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#444444"
+          }
+        ]
       },
       {
-          "featureType": "landscape",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "color": "#f2f2f2"
-              }
-          ]
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
       },
       {
-          "featureType": "poi",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "visibility": "off"
-              }
-          ]
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
       },
       {
-          "featureType": "road",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "saturation": -100
-              },
-              {
-                  "lightness": 45
-              }
-          ]
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": -100
+          },
+          {
+            "lightness": 45
+          }
+        ]
       },
       {
-          "featureType": "road.highway",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "visibility": "simplified"
-              }
-          ]
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "simplified"
+          }
+        ]
       },
       {
-          "featureType": "road.arterial",
-          "elementType": "labels.icon",
-          "stylers": [
-              {
-                  "visibility": "off"
-              }
-          ]
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
       },
       {
-          "featureType": "transit",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "visibility": "off"
-              }
-          ]
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
       },
       {
-          "featureType": "water",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "color": "#c0e4f3"
-              },
-              {
-                  "visibility": "on"
-              }
-          ]
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+          {
+            "color": "#c0e4f3"
+          },
+          {
+            "visibility": "on"
+          }
+        ]
       }
     ],
   });
@@ -407,6 +407,7 @@ function initMap() {
     .then((res) => {
       showLoader(false);
       entries = res;
+      groupbystate(res)
       renderMarkers(entries, map);
       renderSearchResults(entries);
       if (navigator.geolocation) {
@@ -504,14 +505,12 @@ function renderSearchResults(results) {
       `;
     } else {
       resultsDiv.innerHTML += `
-        <li onclick="window.open('${document.location.origin}/studio/${
-        result["slug"]
-      }', '_self')">
+        <li onclick="window.open('${document.location.origin}/studio/${result["slug"]
+        }', '_self')">
         <div class="live-item">
           <div style="margin-top: 4px; margin-bottom: 3px; display: flex; flex-direction: row; justify-content: space-between;">
-            <div class="title"><b>${result["name"]}${
-        result["location-tag"] ? " " + result["location-tag"] + "" : ""
-      }</b></div>
+            <div class="title"><b>${result["name"]}${result["location-tag"] ? " " + result["location-tag"] + "" : ""
+        }</b></div>
             
           </div>
           <div class="subtitle-part" style="display: flex; flex-direction: row; justify-content: space-between;">
@@ -587,4 +586,12 @@ function showLoader(flag) {
   } else {
     document.getElementById("loader").style.visibility = "hidden";
   }
+}
+
+function groupbystate(collections) {
+  let group = collections.reduce((r, a) => {
+    r[a.state] = [...r[a.state] || [], a];
+    return r;
+  }, {});
+  console.log("group", group);
 }
