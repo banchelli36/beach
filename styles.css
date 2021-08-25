@@ -75,7 +75,7 @@ div#map {
         transition: 0.1s;
         overflow-y: hidden;
         margin: 28px 40px;
-        border-radius: 4px;
+        border-radius: 8px;
     }
 
     .sidenav ul li {
@@ -169,8 +169,9 @@ div#map {
 .sidenav #header {
     padding: 20px 20px 20px 20px;
     box-shadow: 1px 1px 4px 0 rgba(135, 135, 135, 0.3);
-    background: url(https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9a7779932c589d703bc4c5_pattern.png),
-        linear-gradient(to bottom, #5d4a6d, #5d4a6d);
+    /* background: url(https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9a7779932c589d703bc4c5_pattern.png),
+        linear-gradient(to bottom, #5d4a6d, #5d4a6d); */
+    background: #5d4a6d;
     background-size: cover;
 }
 
@@ -369,11 +370,11 @@ div#map {
 }
 
 .sidenav ul li .icon-right-arrow {
-    background-image: url("https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8ba040dc4a71547a21_Arrow%20Button-%20Transparent.svg");
+    background-image: url("/assests/Right.svg");
 }
 
 .sidenav ul li:hover .icon-right-arrow {
-    background-image: url("https://global-uploads.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9c8f8be4578afa5f202055_Arrow%20Button-%20Orange.svg");
+    background-image: url("/assests/Right\ \(1\).svg");
 }
 
 @media only screen and (max-width: 479px) {

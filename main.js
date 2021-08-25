@@ -512,25 +512,14 @@ function renderSearchResults(results) {
             <div class="title"><b>${result["name"]}${
         result["location-tag"] ? " " + result["location-tag"] + "" : ""
       }</b></div>
-            <div class="miles">
-              <i>
-                ${
-                  result["distanceToCurrentPos"]
-                    ? nFormatter(
-                        (result["distanceToCurrentPos"] / 1609).toFixed(1),
-                        1
-                      ) + " mi"
-                    : ""
-                }
-              </i>
-            </div>
+            
           </div>
           <div class="subtitle-part" style="display: flex; flex-direction: row; justify-content: space-between;">
             <div class="subtitle">
               ${result["address-1"]} ${result["address-2"] || " "}<br />
               ${result["city"]}, ${result["state"]} ${result["zip-code"]}
             </div>
-            <span class="icon icon-right-arrow" style="align-self: flex-end;"></span>
+            <span class="icon icon-right-arrow"></span>
           </div>
         </div>
         </li>
