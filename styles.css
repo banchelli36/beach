@@ -209,7 +209,7 @@ div#map {
 .sidenav form#search_field div {
     width: 24px;
     height: 24px;
-    background-image: url("https://uploads-ssl.webflow.com/5ea4822fd3a80f6c9cc4fdd9/5f9be8835bfc119fffd08496_location.svg");
+    background-image: url("https://global-uploads.webflow.com/60708843c173335270e52d28/6080f07afa9b246bee71e6fb_detector.svg");
     background-color: unset;
     border: 0;
     cursor: pointer;
@@ -261,7 +261,7 @@ div#map {
 
 .sidenav ul::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background-color: #b5b5b5;
+    background-color: #5d4a6d;
 }
 
 /* .sidenav ul li {
@@ -286,7 +286,7 @@ div#map {
     right: 0em;
     top: auto;
     bottom: 0px;
-    height: 100px;
+    height: 104px;
     color: #afbec5 !important;
 }
 
@@ -370,11 +370,11 @@ div#map {
 }
 
 .sidenav ul li .icon-right-arrow {
-    background-image: url("/assests/Right.svg");
+    background-image: url("https://global-uploads.webflow.com/60708843c173335270e52d28/6125aa71a16f9fb96b48ac4b_Right.svg");
 }
 
 .sidenav ul li:hover .icon-right-arrow {
-    background-image: url("/assests/Right\ \(1\).svg");
+    background-image: url("https://global-uploads.webflow.com/60708843c173335270e52d28/6125aa71355e45374c15340d_Right%20(1).svg");
 }
 
 @media only screen and (max-width: 479px) {

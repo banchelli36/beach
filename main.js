@@ -86,7 +86,7 @@ function renderMarkers(data, map) {
         position: { lat: +item.latitude, lng: +item.longitude },
         map,
         title: item.name,
-        icon: "https://uploads-ssl.webflow.com/60708843c173335270e52d28/6080fd038300e4bc7f7a12d1_pin-svg.svg"
+        icon: "https://global-uploads.webflow.com/60708843c173335270e52d28/6125aa7193fe65e85333c203_Pin%20(1).svg"
       });
 
       marker.addListener("click", () => {
@@ -110,20 +110,20 @@ function renderMarkers(data, map) {
     styles: [
       {
         textColor: "white",
-        textSize: 16,
+        textSize: 18,
         anchorIcon: [40, 0],
         fontFamily: "Helvetica Neue, sans-serif",
-        height: 52,
-        fontWeight: "500",
-        anchorText: [10, -5],
+        height: 64,
+        fontWeight: "bold",
+        anchorText: [20, 0],
         width: 59,
         url:
-          "https://uploads-ssl.webflow.com/60708843c173335270e52d28/608128405ba91c6d7819e0fa_pin-svg-full.svg",
+          "https://global-uploads.webflow.com/60708843c173335270e52d28/6125aa7193fe65e85333c203_Pin%20(1).svg",
       },
     ],
   });
 }
-
+// https://global-uploads.webflow.com/60708843c173335270e52d28/6125aa71a6110102a8859e94_Pin.svg
 function getAllLocationData() {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -508,7 +508,7 @@ function renderSearchResults(results) {
         result["slug"]
       }', '_self')">
         <div class="live-item">
-          <div style="margin-bottom: 3px; display: flex; flex-direction: row; justify-content: space-between;">
+          <div style="margin-top: 4px; margin-bottom: 3px; display: flex; flex-direction: row; justify-content: space-between;">
             <div class="title"><b>${result["name"]}${
         result["location-tag"] ? " " + result["location-tag"] + "" : ""
       }</b></div>

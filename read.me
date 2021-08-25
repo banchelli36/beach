@@ -3,3 +3,55 @@
     Right now its doing a direct match on zip code or something and saying there are no results.
 ✔️ 2) When typing in the search field, we want to add search autosuggest 
 ✔️ 3) When searching a zip code, city, state, etc - we should show the 10 nearest locations sorted by distance
+
+<div class="main-container">
+  <div id="mySidenav" class="sidenav">
+    <div id="header">
+      <div id="title">FIND A SPA</div>
+      <div
+           style="
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  "
+           >
+        <form
+              id="search_field"
+              onsubmit="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state']); return false;"
+              >
+          <input
+                 id="pac-input"
+                 autofocus
+                 type="search"
+                 placeholder="Search by Zip Code or City and State"
+                 onsearch="search('', ['name', 'zip-code', 'state']);"
+                 onkeyup="searchFun()"
+                 onchange="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])"
+                 />
+          <div class="detect-location" onclick="renderClosestLocations(10)">
+            <img
+                 src="https://uploads-ssl.webflow.com/60708843c173335270e52d28/6080f07afa9b246bee71e6fb_detector.svg"
+                 />
+          </div>
+          <div class="search-location-button" onclick="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])">
+            <img
+                 src="https://uploads-ssl.webflow.com/60708843c173335270e52d28/6080f065075d614bdfa224f3_search.svg"
+                 />
+          </div>
+        </form>
+      </div>
+      <p id="input-location-error" style="visibility: hidden">
+        Please select correct address
+      </p>
+    </div>
+    <ul class="results" role="alert" aria-atomic="true"></ul>
+  </div>
+  <div id="loader" class="loader"></div>
+  <div id="map"></div>
+
+  <div id="infowindow-content">
+    <img src="" width="16" height="16" id="place-icon" />
+    <span id="place-name" class="title"></span><br />
+    <span id="place-address"></span>
+  </div>
+</div>
