@@ -2,66 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI1TN8xKeSM3HX6C40vNoy4xnTZxUU0uo&callback=initMap&libraries=places,geometry"
-        defer></script>
-    <link rel="stylesheet" href="styles.scss" />
-    <script src="main.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI1TN8xKeSM3HX6C40vNoy4xnTZxUU0uo&callback=initMap&libraries=places,geometry"
+    defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+  <link rel="stylesheet" href="styles.scss" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </head>
 
 <body>
-    <div class="main-container">
-        <div id="mySidenav" class="sidenav">
-            <div id="header">
-                <div id="title">FIND A STUDIO</div>
-                <div style="display: flex; flex-direction: row; justify-content: space-between;">
-                    <form id="search_field"
-                        onsubmit="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state']); return false;">
-                        <input id="pac-input" type="search" placeholder="Search by Zip Code or City and State..." onsearch="search('', ['name', 'zip-code', 'state']);" onkeyup="searchFun()" onchange="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])">
-                        <div onclick="renderClosestLocations(10)"></div>
-                    </form>
-                    <button class="locator-btn"
-                        onclick="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])"></button>
-                </div>
-            </div>
-            <ul class="results"></ul>
+  <div class="main-container">
+    <div id="mySidenav" class="sidenav">
+      <div id="header">
+        <div id="title">FIND A STUDIO</div>
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+          <form id="search_field"
+            onsubmit="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state']); return false;">
+            <input id="pac-input" type="search" placeholder="Search by Zip Code or City and State..."
+              onsearch="search('', ['name', 'zip-code', 'state']);" onkeyup="searchFun()"
+              onchange="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])">
+            <div onclick="renderClosestLocations(10)"></div>
+          </form>
+          <button class="locator-btn"
+            onclick="search(document.querySelector('#search_field input').value, ['name', 'zip-code', 'state'])"></button>
         </div>
-        <div id="loader" class="loader"></div>
-        <div id="map">
-        </div>
-
-        <div id="infowindow-content">
-            <img src="" width="16" height="16" id="place-icon" />
-            <span id="place-name" class="title"></span><br />
-            <span id="place-address"></span>
-        </div>
+      </div>
+      <ul class="results"></ul>
     </div>
-    <div>
-      <!-- FIRST TAB -->
-      <div class="tab">
-        <input id="tab-1" type="checkbox">
-        <label for="tab-1">Tab 1</label>
-        <div class="tab-content"><p>Next to the risk dictates a nurse.</p></div>
-      </div>
+    <div id="loader" class="loader"></div>
+    <div id="map">
+    </div>
 
-      <!-- SECOND TAB -->
-      <div class="tab">
-        <input id="tab-2" type="checkbox">
-        <label for="tab-2">Tab 2</label>
-        <div class="tab-content"><p>Should the pace attack?</p></div>
-      </div>
-
-      <!-- THIRD TAB -->
-      <div class="tab">
-        <input id="tab-3" type="checkbox">
-        <label for="tab-3">Tab 3</label>
-        <div class="tab-content"><p>A circumstance strikes a deserved trap.</p></div>
+    <div class="spa-location-list">
+      <p class="spa-location-title">SPA LOCATIONS</p>
+      <div class="row accordion" id="accordionExample">
+        <div class="col-12 col-md-6 col-xl-4">
+          <div id="accordionList1">
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-4">
+          <div id="accordionList2">
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-4">
+          <div id="accordionList3">
+          </div>
+        </div>
       </div>
     </div>
+
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon" />
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div>
+  </div>
+
 </body>
 
 </html>

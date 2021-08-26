@@ -593,5 +593,54 @@ function groupbystate(collections) {
     r[a.state] = [...r[a.state] || [], a];
     return r;
   }, {});
-  console.log("group", group);
+
+  const firstDiv = document.getElementById("accordionList1");
+  firstDiv.innerHTML = "";
+
+  const secondDiv = document.getElementById("accordionList2");
+  secondDiv.innerHTML = "";
+
+  const thirdDiv = document.getElementById("accordionList3");
+  thirdDiv.innerHTML = "";
+
+
+  for (const [index, [property, value]] of Object.entries(Object.entries(group))) {
+
+    console.log(`${index%3}: ${property}`);
+    let initialContent = `<div class="accordion-item" style="border: none;">
+      <div class="accordion-header" id="headingOne${index}" style="border-bottom: 1px solid #e6e6e6;">
+        <button style="font-size: 18px; color: #303030; font-weight: 700;" class="accordion-button collapsed" type="button"
+          data-bs-toggle="collapse" data-bs-target="#collapseOne${index}" aria-expanded="false" aria-controls="collapseOne${index}">
+          ${states[property] ? states[property]: property}
+        </button>
+      </div>
+      <div id="collapseOne${index}" class="accordion-collapse collapse" aria-labelledby="'headingOne'${index}"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul>`
+    let licontent =``
+    value.forEach((element) => {
+      licontent +=`<li>${element.name}</li>`;
+      // console.log(`${index}: ${element.name}`);
+    });
+
+    switch (index%3) {
+      case 0:
+        firstDiv.innerHTML += initialContent + licontent + `</ul></div></div></div></div>`
+        break;
+      case 1:
+        secondDiv.innerHTML += initialContent + licontent + `</ul></div></div></div></div>`
+        break;
+      case 2:
+        thirdDiv.innerHTML += initialContent + licontent + `</ul></div></div></div></div>`
+        break;
+
+      default:
+        break;
+    }
+
+  }
+
+
 }
+
