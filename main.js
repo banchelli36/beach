@@ -115,8 +115,8 @@ function renderMarkers(data, map) {
         fontFamily: "Helvetica Neue, sans-serif",
         height: 64,
         fontWeight: "bold",
-        anchorText: [20, 0],
-        width: 59,
+        anchorText: [19, 0],
+        width: 63,
         url:
           "https://global-uploads.webflow.com/60708843c173335270e52d28/6125aa7193fe65e85333c203_Pin%20(1).svg",
       },
@@ -130,7 +130,7 @@ function getAllLocationData() {
       async: true,
       crossDomain: true,
       cache: true,
-      url: `https://scripts.cosmagency.com/studios`,
+      url: `https://scripts.cosmagency.com/beach/spas`,
       method: "GET",
       success: function (data) {
         resolve(data.data);
@@ -202,7 +202,7 @@ function searchFun() {
 
 function debounceSearch() {
   const searchTerm = document.querySelector("#search_field input").value;
-  const fieldNames = ["name", "zip-code", "state"];
+  const fieldNames = ["name", "zip-code-2", "state"];
   if (searchTerm === "") {
     localStorage.setItem("searchedAddress", "");
     const resultsDiv = document.getElementsByClassName("results").item(0);
@@ -504,9 +504,15 @@ function renderSearchResults(results) {
         </li>
       `;
     } else {
+      const mapLink ="https://maps.google.com/maps/?q=" +
+        (result["address-1"] ? result["address-1"] + ", " : "") +
+        (result["address-2"] ? result["address-2"] + ", " : "") +
+        (result.city ? result.city + ", " : "") +
+        (result["state-abbreviated"] ? result["state-abbreviated"] + ", " : "") +
+        (result["zip-code-2"] ? result["zip-code-2"] + ", " : "");
+
       resultsDiv.innerHTML += `
-        <li onclick="window.open('${document.location.origin}/studio/${result["slug"]
-        }', '_self')">
+        <li onclick="window.open('${mapLink}')">
         <div class="live-item">
           <div style="margin-top: 4px; margin-bottom: 3px; display: flex; flex-direction: row; justify-content: space-between;">
             <div class="title"><b>${result["name"]}${result["location-tag"] ? " " + result["location-tag"] + "" : ""
@@ -516,7 +522,7 @@ function renderSearchResults(results) {
           <div class="subtitle-part" style="display: flex; flex-direction: row; justify-content: space-between;">
             <div class="subtitle">
               ${result["address-1"]} ${result["address-2"] || " "}<br />
-              ${result["city"]}, ${result["state"]} ${result["zip-code"]}
+              ${result["name"]} ${result["zip-code-2"]}
             </div>
             <span class="icon icon-right-arrow"></span>
           </div>
@@ -590,7 +596,7 @@ function showLoader(flag) {
 
 function groupbystate(collections) {
   let group = collections.reduce((r, a) => {
-    r[a.state] = [...r[a.state] || [], a];
+    r[a['state-abbreviated']] = [...r[a['state-abbreviated']] || [], a];
     return r;
   }, {});
 
@@ -620,7 +626,13 @@ function groupbystate(collections) {
           <ul>`
     let licontent =``
     value.forEach((element) => {
-      licontent +=`<li>${element.name}</li>`;
+      const mapLink = "https://maps.google.com/maps/?q=" +
+        (element["address-1"] ? element["address-1"] + ", " : "") +
+        (element["address-2"] ? element["address-2"] + ", " : "") +
+        (element.city ? element.city + ", " : "") +
+        (element["state-abbreviated"] ? element["state-abbreviated"] + ", " : "") +
+        (element["zip-code-2"] ? element["zip-code-2"] + ", " : "");
+      licontent += `<li onclick="window.open('${mapLink}')">${element.name}, (${element["address-1"]})</li>`;
       // console.log(`${index}: ${element.name}`);
     });
 
