@@ -595,6 +595,14 @@ function showLoader(flag) {
 }
 
 function groupbystate(collections) {
+  collections.map((item) => {
+    item.state = states[item["state-abbreviated"]]
+  })
+  collections.sort(function (a, b) {
+    if (a.state < b.state) { return -1; }
+    if (a.state > b.state) { return 1; }
+    return 0;
+  })
   let group = collections.reduce((r, a) => {
     r[a['state-abbreviated']] = [...r[a['state-abbreviated']] || [], a];
     return r;
